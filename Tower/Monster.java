@@ -14,10 +14,12 @@ public class Monster{
 	public Graphics g = null;
 	private int x_position = 0;
 	private int y_position = 0;
+	private int health = 0;
+	private int speed = 0;
 	private static boolean live = false;
 	private static BufferedImage image1 = null;
 	public Monster(int x, int y, Graphics g, int health, int speed){
-		set_monster(x, y, g);
+		set_monster(x, y, g, health, speed);
 	}
 	//sets the private position variables with the ones
 	//passed from the map
