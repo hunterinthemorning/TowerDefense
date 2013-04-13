@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 public class Monster{
 	static File file = new File("b.png");
-	File file2 = new File("./image2.txt");
+	File file2 = new File("./monster1.gif");
 	static int sleep = 1000;
 	public Graphics g = null;
 	public int x_position = 0;

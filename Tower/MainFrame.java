@@ -153,5 +153,6 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	
 	public void update(long timePassed){
 	Tower_Controler.update();
+	Monster_Controller.update();
 	}
 }
