@@ -9,13 +9,14 @@ public class Tower_Controler {
 	static boolean live = false;
 
 	// when a new tower is placed this sets the position and creates the tower
-	public static void recieve_position(int x, int y) {
+	public static void recieve_position(int x , int y) {
 		// do x and y conversion here
 		/////////////////////////////
 		
 		/////////////////////////////
 		// create new tower when called
-		System.out.println((x/32) * 32  + " " +(y/32) *32);
+		//System.out.println((x/32) * 32  + " " +(y/32) *32);
+
 		Towers tower = new Towers((x/32)*32, (y/32) *32, g);
 		Data.towers.add(tower);
 	}

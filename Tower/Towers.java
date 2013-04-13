@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Graphics;
@@ -14,7 +15,7 @@ public class Towers{
 	public Graphics g = null;
 	public int x_position = 0;
 	public int y_position = 0;
-	private int aoe = 10;
+	private int aoe = 110;
 	static boolean live = false;
 	static BufferedImage image1 = null;
 	public int attacking;
@@ -42,16 +43,41 @@ public class Towers{
 	
 	//draws the tower on the map
 	public void paint(){
+	
 	//System.out.println(x_position + " " + y_position);
 		g.drawImage(image1, x_position, y_position, null);
+        g.setColor(Color.black);
+		g.drawOval(x_position - aoe, y_position - aoe, aoe*2, aoe*2);
 
 	}
 	
 	//draws attack animation
-	/*public static void paint2(){
-		
-		g.drawImage(image1, x_position, y_position, null);
-	}*/
+	public void paint2(){		
+			g.setColor(Color.magenta);
+			g.drawOval(x_position - aoe + 75, y_position - aoe + 75, aoe * 2 - 150, aoe * 2 - 150);
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			g.drawOval(x_position - aoe + 50, y_position - aoe +50, aoe *2 - 100, aoe *2 - 100);
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			g.drawOval(x_position - aoe + 12, y_position - aoe + 12, aoe*2 -25, aoe*2 -25);
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			g.drawOval(x_position - aoe, y_position - aoe, aoe, aoe);
+
+	}
 	// this gets called after placement of first tower
 		private void attack(boolean live) {
 			//while live and if monsters exist
