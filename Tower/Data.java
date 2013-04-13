@@ -10,9 +10,9 @@ import javax.swing.ImageIcon;
 
 public class Data {
 public static ArrayList<Towers> towers = new ArrayList();
-	private static int startingGold = 200;
-	private static int gold = startingGold;
-	private static int life = 100;
+	public static int startingGold = 200;
+	public static int gold = startingGold;
+	public static int life = 100;
 	private static int level = 1;
 	private static Map[][] map;
 	private static ArrayList<Sprite> monsters;
