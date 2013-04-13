@@ -1,4 +1,4 @@
-
+/*
 import java.util.ArrayList;
 import java.awt.Graphics;
 public class Monster_Controler {
@@ -43,4 +43,4 @@ public class Monster_Controler {
 			update();
 		}
 	}//end dealDamage
-}
+}*/
