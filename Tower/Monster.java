@@ -12,8 +12,8 @@ public class Monster{
 	File file2 = new File("./image2.txt");
 	static int sleep = 1000;
 	public Graphics g = null;
-	private int x_position = 0;
-	private int y_position = 0;
+	public int x_position = 0;
+	public int y_position = 0;
 	private int health = 0;
 	private int speed = 0;
 	private static boolean live = false;
@@ -43,6 +43,18 @@ public class Monster{
 	//draws the tower on the map
 	public void paint(){
 	//System.out.println(x_position + " " + y_position);
+		if(health >= 75){
+			g.setColor(Color.black);
+		}
+		else if(75 > health >= 50){
+			g.setColor(Color.red);
+		}
+		else if(50 > health >= 25){
+			g.setColor(Color.yellow);
+		}
+		else{
+			g.setColor(Color.white);
+		}
 		g.drawImage(image1, x_position, y_position, null);
 
 	}
@@ -53,4 +65,12 @@ public class Monster{
 		g.drawImage(image1, x_position, y_position, null);
 	}*/
 	// this gets called after placement of first tower
+
+	public int getHealth(){
+		return health;
+	}//end getHealth
+
+	public void setHealth(int health){
+		this.health = health;
+	}//end setHealth
 }
