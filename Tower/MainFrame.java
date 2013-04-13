@@ -11,7 +11,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import java.awt.Dimension;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
@@ -35,6 +35,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 		setSize(720,572);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		turretPanel.setPreferredSize(new Dimension(100,100));
 		getContentPane().add(panel, BorderLayout.CENTER);
 		getContentPane().add(turretPanel, BorderLayout.EAST);
 		setVisible(true);
