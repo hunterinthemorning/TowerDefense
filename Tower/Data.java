@@ -12,12 +12,14 @@ public class Data {
 public static ArrayList<Towers> towers = new ArrayList();
 	private static int startingGold = 200;
 	private static int gold = startingGold;
-	private static int level;
+	private static int life = 100;
+	private static int level = 1;
 	private static Map[][] map;
 	private static ArrayList<Sprite> monsters;
 	private static String grass = "Grass.png";
 	private static String dirt = "Dirt.png";
 	private static int startX, startY, endX, endY;
+	
 	private static String[][] m = {
 			{"GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP"},
 			{"GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP"},
@@ -42,7 +44,15 @@ public static ArrayList<Towers> towers = new ArrayList();
 			{"GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP"},
 			{"GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP","GP"}
 	};
-	
+	public static int getLevel(){
+		return level;
+	}
+	public static int getGold(){
+		return gold;
+	}
+	public static int getLife(){
+		return life;
+	}
 	public static int getStartX(){
 		return startX;
 	}

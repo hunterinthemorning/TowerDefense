@@ -1,4 +1,4 @@
-/*import java.awt.Graphics;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -43,7 +43,7 @@ public class Monster{
 	//draws the tower on the map
 	public void paint(){
 	//System.out.println(x_position + " " + y_position);
-		if(health >= 75){
+		/*if(health >= 75){
 			g.setColor(Color.black);
 		}
 		else if(75 > health >= 50){
@@ -54,7 +54,7 @@ public class Monster{
 		}
 		else{
 			g.setColor(Color.white);
-		}
+		}*/
 		g.drawImage(image1, x_position, y_position, null);
 
 	}
@@ -63,7 +63,7 @@ public class Monster{
 	/*public static void paint2(){
 		
 		g.drawImage(image1, x_position, y_position, null);
-	}
+	}*/
 	// this gets called after placement of first tower
 
 	public int getHealth(){
@@ -74,4 +74,4 @@ public class Monster{
 		this.health = health;
 	}//end setHealth
 }
-*/
+

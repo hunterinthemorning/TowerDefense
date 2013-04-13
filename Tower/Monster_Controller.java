@@ -1,13 +1,13 @@
-/*
+
 import java.util.ArrayList;
 import java.awt.Graphics;
-public class Monster_Controler {
+public class Monster_Controller {
 	static Graphics g;
 	int health = 100;
 	int speed = 10;
 	static ArrayList<Monster> monsters = new ArrayList();
 
-	public static void spawnMonster(int x, int y) {
+	public static void spawnMonster(int x, int y, Graphics g, int health, int speed) {
 		// do x and y conversion here
 		/////////////////////////////
 		
@@ -43,4 +43,4 @@ public class Monster_Controler {
 			update();
 		}
 	}//end dealDamage
-}*/
+}
