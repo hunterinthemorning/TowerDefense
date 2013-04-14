@@ -29,7 +29,7 @@ public class Towers{
 		this.x_position = x;
 		this.y_position = y;
 		this.g = g;
-		paint();
+		paint(g);
 		attack(live);
 	
 		try{
@@ -42,10 +42,10 @@ public class Towers{
 	}
 	
 	//draws the tower on the map
-	public void paint(){
+	public void paint(Graphics g){
 	
 	//System.out.println(x_position + " " + y_position);
-		g.drawImage(image1, x_position, y_position, null);
+		g.drawImage(image1, x_position - 12, y_position - 12, null);
         g.setColor(Color.black);
 		g.drawOval(x_position - aoe, y_position - aoe, aoe*2, aoe*2);
 

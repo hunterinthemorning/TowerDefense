@@ -26,10 +26,10 @@ public class Tower_Controler {
 
 	}
 	
-	public static void update(){
+	public static void update(Graphics g){
 
 		for(int i = 0; i < Data.towers.size(); i++){
-			Data.towers.get(i).paint();
+			Data.towers.get(i).paint(g);
 			try{
 			//Thread.sleep(2000);
 			//System.out.println(i);
