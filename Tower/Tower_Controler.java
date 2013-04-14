@@ -16,9 +16,14 @@ public class Tower_Controler {
 		/////////////////////////////
 		// create new tower when called
 		//System.out.println((x/32) * 32  + " " +(y/32) *32);
-
+		Map[][] m = Data.getMap();
+		//System.out.println(m[x/32][y/32].getCharString());
+		if(m[x/32][y/32].getCharString().equals("GP")){
 		Towers tower = new Towers((x/32)*32, (y/32) *32, g);
 		Data.towers.add(tower);
+		m[x/32][y/32].setCharString("B");
+		}
+
 	}
 	
 	public static void update(){
