@@ -8,8 +8,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Monster{
-	static File file = new File("b.png");
-	File file2 = new File("./monster1.gif");
+	static File file = new File("monster3.png");
+	File file2 = new File("./monster2.png");
 	static int sleep = 1000;
 	public Graphics g = null;
 	public int x_position = 0;
@@ -59,12 +59,10 @@ public class Monster{
 
 	}
 	
-	//draws attack animation
 	/*public static void paint2(){
 		
 		g.drawImage(image1, x_position, y_position, null);
 	}*/
-	// this gets called after placement of first tower
 
 	public int getHealth(){
 		return health;

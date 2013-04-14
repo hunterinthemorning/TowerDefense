@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.awt.Dimension;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import java.util.*;
 
 
 public class MainFrame extends Core implements KeyListener, MouseMotionListener,MouseListener{
@@ -53,6 +54,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 		}
 		g = this.getGraphics();
 		Tower_Controler.g = this.getGraphics();
+		Monster_Controller.g = this.getGraphics();
 		
 	}
 	
@@ -79,6 +81,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 				newGame(1);
 				exitMenu();
 				Tower_Controler.live = true;
+                                //monsters.start();
 				
 			}else if(Load.contains(rect)){
 //				loadGame();
@@ -93,10 +96,14 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	
 	private void newGame(int num){
 		Data.loadMap(num);
+                Monster_Map monster_map = new Monster_Map(num);;
+                //Hack to span monster for now
+                Monster_Controller.spawnMonster(0,220,g,100,50);
 	}
 	
 	private void loadGame(int num){
 		Save.load(Integer.toString(num)+".map");
+                Monster_Map monster_map = new Monster_Map(num);;
 	}
 	
 	private void exitGame(){
