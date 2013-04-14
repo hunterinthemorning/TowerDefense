@@ -27,23 +27,23 @@ public class Monster_Controller {
                         Monster_Tile temp = Monster_Map.monster_map[current_monster_x][current_monster_y];
                         Monster_Map.monster_map[current_monster_x][current_monster_y].traversed = 1;
                         
-                        if(Monster_Map.monster_map[current_monster_x+1][current_monster_y].traversed == 0 || 
+                        if(Monster_Map.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
                            Monster_Map.monster_map[current_monster_x+1][current_monster_y].tile.equals("DM")){
                                monsters.get(i).x_position = (current_monster_x+1) * 32;
                         }
                         else if(current_monster_x > 0){
-                          if(Monster_Map.monster_map[current_monster_x-1][current_monster_y].traversed == 0 || 
+                          if(Monster_Map.monster_map[current_monster_x-1][current_monster_y].traversed == 0 && 
                              Monster_Map.monster_map[current_monster_x-1][current_monster_y].tile.equals("DM")){
                                 monsters.get(i).x_position = (current_monster_x-1) * 32;
                           }
                         }
-                        else if(Monster_Map.monster_map[current_monster_x][current_monster_y+1].traversed == 0 || 
+                        else if(Monster_Map.monster_map[current_monster_x][current_monster_y+1].traversed == 0 && 
                            Monster_Map.monster_map[current_monster_x][current_monster_y+1].tile.equals("DM")){
                               monsters.get(i).y_position = (current_monster_y+1) * 32;
 
                         } 
                         else if(current_monster_y > 0){
-                          if(Monster_Map.monster_map[current_monster_x][current_monster_y-1].traversed == 0 || 
+                          if(Monster_Map.monster_map[current_monster_x][current_monster_y-1].traversed == 0 && 
                            Monster_Map.monster_map[current_monster_x][current_monster_y-1].tile.equals("DM")){
                                monsters.get(i).y_position = (current_monster_y-1) * 32;
                           }
