@@ -1,75 +1,51 @@
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
-public class Monster{
-	static File file = new File("monster3.png");
-	File file2 = new File("./monster2.png");
-	static int sleep = 1000;
-	public Graphics g = null;
-	public int x_position = 0;
-	public int y_position = 0;
-	private int health = 0;
-	private int speed = 0;
-	private static boolean live = false;
-	private static BufferedImage image1 = null;
-	public Monster(int x, int y, Graphics g, int health, int speed){
-		set_monster(x, y, g, health, speed);
-	}
-	//sets the private position variables with the ones
-	//passed from the map
-	public void set_monster(int x, int y, Graphics g, int health, int speed){
-		this.x_position = x;
-		this.y_position = y;
-		this.g = g;
-                this.health = health;
-                this.speed = speed;
-		paint();
-	
-		try{
-			image1 = ImageIO.read(file);
-			//BufferedImage image2  = ImageIO.read(file2);
-			}
-		catch(IOException e){
-			
-		}
-	}
-	
-	//draws the tower on the map
-	public void paint(){
-	//System.out.println(x_position + " " + y_position);
-		/*if(health >= 75){
-			g.setColor(Color.black);
-		}
-		else if(75 > health >= 50){
-			g.setColor(Color.red);
-		}
-		else if(50 > health >= 25){
-			g.setColor(Color.yellow);
-		}
-		else{
-			g.setColor(Color.white);
-		}*/
-		g.drawImage(image1, x_position, y_position, null);
+public class Monster
+{
+  static File file = new File("monster3.png");
+  File file2 = new File("./monster2.png");
+  static int sleep = 1000;
+  public Graphics g = null;
+  public int x_position = 0;
+  public int y_position = 0;
+  int health = 0;
+  private int speed = 0;
+  private static boolean live = false;
+  private static BufferedImage image1 = null;
 
-	}
-	
-	/*public static void paint2(){
-		
-		g.drawImage(image1, x_position, y_position, null);
-	}*/
+  public Monster(int paramInt1, int paramInt2, int paramInt3, int paramInt4) { set_monster(paramInt1, paramInt2, paramInt3, paramInt4); }
 
-	public int getHealth(){
-		return health;
-	}//end getHealth
 
-	public void setHealth(int health){
-		this.health = health;
-	}//end setHealth
+  public void set_monster(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  {
+    this.x_position = paramInt1;
+    this.y_position = paramInt2;
+    this.health = paramInt3;
+    this.speed = paramInt4;
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
+  }
+
+  public void paint(Graphics paramGraphics)
+  {
+    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+  }
+
+  public int getHealth()
+  {
+    return this.health;
+  }
+
+  public void setHealth(int paramInt) {
+    this.health = paramInt;
+  }
 }
-

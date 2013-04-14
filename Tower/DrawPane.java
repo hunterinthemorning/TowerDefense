@@ -41,7 +41,9 @@ public class DrawPane extends JPanel{
 					if(s != null)
 						g.drawImage(s.getImage(), Math.round(s.getX()), Math.round(s.getY()), null);
 				}
-			} Tower_Controler.update(g);
+			} 
+		Tower_Controler.update(g);
+		Monster_Controller.update(g);
 		}else{
 			g.drawImage(menu,0,0,getWidth(), getHeight(),null);
 		}

@@ -1,108 +1,119 @@
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import java.io.PrintStream;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.Timer;
 
-public class Towers{
-	static File file = new File("b.png");
-	File file2 = new File("./image2.txt");
-	static int sleep = 1000;
-	public Graphics g = null;
-	public int x_position = 0;
-	public int y_position = 0;
-	private int aoe = 110;
-	static boolean live = false;
-	static BufferedImage image1 = null;
-	public int attacking;
-	public Towers(int x, int y, Graphics g){
-		set_tower(x, y, g);
-		attack(live);
-	}
-	//sets the private position variables with the ones
-	//passed from the map
-	public void set_tower(int x, int y, Graphics g){
-		this.x_position = x;
-		this.y_position = y;
-		this.g = g;
-		paint(g);
-		attack(live);
-	
-		try{
-			image1 = ImageIO.read(file);
-			//BufferedImage image2  = ImageIO.read(file2);
-			}
-		catch(IOException e){
-			
-		}
-	}
-	
-	//draws the tower on the map
-	public void paint(Graphics g){
-	
-	//System.out.println(x_position + " " + y_position);
-		g.drawImage(image1, x_position - 12, y_position - 12, null);
-        g.setColor(Color.black);
-		g.drawOval(x_position - aoe, y_position - aoe, aoe*2, aoe*2);
+public class Towers
+  implements ActionListener
+{
+  static File file = new File("b.png");
+  File file2 = new File("./image2.txt");
+  static int sleep = 1000;
+  public Graphics g = null;
+  public int x_position = 0;
+  public int y_position = 0;
+  private int aoe = 50;
+  static boolean live = false;
+  static BufferedImage image1 = null;
+  public int attacking;
+  Timer timer = null;
 
-	}
-	
-	//draws attack animation
-	public void paint2(){		
-			g.setColor(Color.magenta);
-			g.drawOval(x_position - aoe + 75, y_position - aoe + 75, aoe * 2 - 150, aoe * 2 - 150);
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			g.drawOval(x_position - aoe + 50, y_position - aoe +50, aoe *2 - 100, aoe *2 - 100);
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			g.drawOval(x_position - aoe + 12, y_position - aoe + 12, aoe*2 -25, aoe*2 -25);
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			g.drawOval(x_position - aoe, y_position - aoe, aoe, aoe);
+  public void actionPerformed(ActionEvent paramActionEvent)
+  {
+    if (Monster_Controller.monsters.size() >= 0)
+    {
+      for (int i = 0; i < Monster_Controller.monsters.size(); i++) {
+        if (((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position + this.aoe) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)))
+        {
+          this.attacking = i;
 
-	}
-	// this gets called after placement of first tower
-		private void attack(boolean live) {
-			//while live and if monsters exist
-			
-			while (live == true) {
-			/*	if(Monsters.monster.size() > 0){
-				//check if a monster is in range
-				for(int i = 0; i < Monsters.monster.size(); i++){
-					if((Monsters.monster[i].x <= x_position + 10 && Monsters.monster[i].y <= y_position + 10) ||
-							(Monsters.monster[i].x <= x_position - 10 && Monsters.monster[i].y <= y_position + 10)||
-							(Monsters.monster[i].x <= x_position + 10 && Monsters.monster[i].y <= y_position - 10)||
-							(Monsters.monster[i].x <= x_position - 10 && Monsters.monster[i].y <= y_position - 10)){
-						attacking = i;
-					}
-				}
-				//call attack animation here
-				////////////////////////////
-				
-				paint2();
-				//take life away from attacked monster
-				Monsters.monster[attacking].life -= 10;
-				//sleep
-				Thread.sleep(sleep);
-			
-			}	*/
-			}
-		}
+          System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
+          Monster_Controller.monsters.get(this.attacking).health -= 10;
+          if (((Monster)Monster_Controller.monsters.get(this.attacking)).health == 0) {
+            Data.gold += 10;
+          }
+        }
+
+      }
+
+    }
+
+    this.timer.restart();
+  }
+
+  public Towers(int paramInt1, int paramInt2, Graphics paramGraphics)
+  {
+    start_attack();
+    set_tower(paramInt1, paramInt2, paramGraphics);
+    live = true;
+  }
+
+  public void set_tower(int paramInt1, int paramInt2, Graphics paramGraphics)
+  {
+    this.x_position = paramInt1;
+    this.y_position = paramInt2;
+    this.g = paramGraphics;
+    paint(paramGraphics);
+    Data.gold -= 30;
+    attack();
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
+  }
+
+  public void paint(Graphics paramGraphics)
+  {
+    paramGraphics.drawImage(image1, this.x_position - 12, this.y_position - 12, null);
+    paramGraphics.setColor(Color.black);
+    paramGraphics.drawOval(this.x_position - this.aoe, this.y_position - this.aoe, this.aoe * 2, this.aoe * 2);
+    attack();
+  }
+
+  public void paint2()
+  {
+    this.g.setColor(Color.magenta);
+    this.g.drawOval(this.x_position - this.aoe + 75, this.y_position - this.aoe + 75, this.aoe * 2 - 150, this.aoe * 2 - 150);
+    try {
+      Thread.sleep(20L);
+    }
+    catch (InterruptedException localInterruptedException1) {
+      localInterruptedException1.printStackTrace();
+    }
+    this.g.drawOval(this.x_position - this.aoe + 50, this.y_position - this.aoe + 50, this.aoe * 2 - 100, this.aoe * 2 - 100);
+    try {
+      Thread.sleep(20L);
+    }
+    catch (InterruptedException localInterruptedException2) {
+      localInterruptedException2.printStackTrace();
+    }
+    this.g.drawOval(this.x_position - this.aoe + 12, this.y_position - this.aoe + 12, this.aoe * 2 - 25, this.aoe * 2 - 25);
+    try {
+      Thread.sleep(20L);
+    }
+    catch (InterruptedException localInterruptedException3) {
+      localInterruptedException3.printStackTrace();
+    }
+    this.g.drawOval(this.x_position - this.aoe, this.y_position - this.aoe, this.aoe, this.aoe);
+  }
+
+  public void start_attack() {
+    this.timer = new Timer(500, this);
+    this.timer.setInitialDelay(500);
+    this.timer.start();
+  }
+
+  private void attack()
+  {
+  }
 }
