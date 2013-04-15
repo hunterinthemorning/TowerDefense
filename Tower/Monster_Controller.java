@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 public class Monster_Controller {
 	static Graphics g;
 	int health = 100;
@@ -45,6 +46,7 @@ public class Monster_Controller {
 				monsters.remove(i);
 				Data.life -= 20;
 				if(Data.life <= 0){
+		        JOptionPane.showMessageDialog(null, "Game over!!!");
 					System.exit(0);
 				}
 			}
