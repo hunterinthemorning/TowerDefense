@@ -44,6 +44,9 @@ public class Monster_Controller {
 			if((current_monster_x == endX) && (current_monster_y == endY)) {
 				monsters.remove(i);
 				Data.life -= 20;
+				if(Data.life <= 0){
+					System.exit(0);
+				}
 			}
 			else {
 

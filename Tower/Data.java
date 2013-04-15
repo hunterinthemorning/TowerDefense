@@ -153,13 +153,11 @@ public static ArrayList<Towers> towers = new ArrayList();
 	}
 	
 	public static void setStartPos(int x, int y){
-		System.out.println("Start position: "+x+" "+y);
 		startX = x;
 		startY = y;
 	}
 	
 	public static void setEndPos(int x, int y){
-		System.out.println("End position: "+x+" "+y);
 		endX = x;
 		endY = y;
 	}
