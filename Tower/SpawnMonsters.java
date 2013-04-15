@@ -9,6 +9,7 @@ public class SpawnMonsters implements ActionListener {
 	Timer timer = null;
 	private int count = 0;
 	int x, y; //Change this to represent the top right corner of the map
+	int startingHealth = 100;
 	
 	public void start(){
 		timer = new Timer(500, this);
@@ -20,7 +21,7 @@ public class SpawnMonsters implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		if(count != 10){
-//			spawnMonster();
+//			spawnMonster(startingHealth*level, );
 			count++;
 			timer.restart();
 		}
@@ -28,8 +29,8 @@ public class SpawnMonsters implements ActionListener {
 			count = 0;
 //			incrase level of the game
 			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
+				Thread.sleep(10000);
+			} catch (InterruptedException e){
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

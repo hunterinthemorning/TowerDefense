@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 public class TurretPane extends JPanel implements ActionListener{
 	JButton button;
+	SpawnMonsters monsters;
 	
 	TurretPane(){
 		button = new JButton("START");
@@ -15,6 +16,7 @@ public class TurretPane extends JPanel implements ActionListener{
 		setLayout(null);
 		button.setBounds(0,500,100,50);
 		add(button);
+		monsters = new SpawnMonsters();
 	}
 	
 	public void paintComponent(Graphics g){
@@ -34,6 +36,6 @@ public class TurretPane extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		//call spawn monsters
-		
+		monsters.start();
 	}
 }
