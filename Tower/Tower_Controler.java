@@ -1,36 +1,25 @@
-
-import java.util.ArrayList;
 import java.awt.Graphics;
-public class Tower_Controler {
-	static Graphics g;
-	// current list of towers
-	//static ArrayList<Towers> towers = new ArrayList();
-	// what has the towers continue or stop at end of level/game
-	static boolean live = false;
+import java.util.ArrayList;
 
-	// when a new tower is placed this sets the position and creates the tower
-	public static void recieve_position(int x , int y) {
-		// do x and y conversion here
-		/////////////////////////////
-		
-		/////////////////////////////
-		// create new tower when called
-		//System.out.println((x/32) * 32  + " " +(y/32) *32);
+public class Tower_Controler
+{
+  static Graphics g;
+  static boolean live = false;
 
-		Towers tower = new Towers((x/32)*32, (y/32) *32, g);
-		Data.towers.add(tower);
-	}
-	
-	public static void update(){
+  public static void recieve_position(int paramInt1, int paramInt2)
+  {
+    Map[][] arrayOfMap = Data.getMap();
 
-		for(int i = 0; i < Data.towers.size(); i++){
-			Data.towers.get(i).paint();
-			try{
-			//Thread.sleep(2000);
-			//System.out.println(i);
-			}
-			catch(Exception e){
-			}
-		}
-	}
+    if (arrayOfMap[(paramInt1 / 32)][(paramInt2 / 32)].getCharString().equals("GP")) {
+      Towers localTowers = new Towers(paramInt1 / 32 * 32, paramInt2 / 32 * 32, g);
+      Data.towers.add(localTowers);
+      arrayOfMap[(paramInt1 / 32)][(paramInt2 / 32)].setCharString("B");
+    }
+  }
+
+  public static void update(Graphics paramGraphics)
+  {
+    for (int i = 0; i < Data.towers.size(); i++)
+      Data.towers.get(i).paint(paramGraphics);
+  }
 }

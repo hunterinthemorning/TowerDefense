@@ -74,6 +74,8 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	public void mouseClicked(MouseEvent e) {
 		Rectangle rect = new Rectangle(e.getX(), e.getY(), 1, 1);
 		
+		Monster_Controller.spawnMonster(0, 220, 100, 5);
+		
 		if(!isMenu()){
 			if(New.contains(rect)){
 				newGame(1);
@@ -93,6 +95,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	
 	private void newGame(int num){
 		Data.loadMap(num);
+		Monster_Map monster_map = new Monster_Map(num);
 	}
 	
 	private void loadGame(int num){
@@ -152,6 +155,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	}
 	
 	public void update(long timePassed){
-	Tower_Controler.update();
+	//Tower_Controler.update();
+	//Monster_Controller.update();
 	}
 }
