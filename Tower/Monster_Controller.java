@@ -35,7 +35,7 @@ public class Monster_Controller {
                         int current_monster_y = current_monster.y_position/32; 
 
                         Monster_Tile temp = current_monster.monster_map[current_monster_x][current_monster_y];
-			System.out.println("monster_map["+current_monster_x+"]["+current_monster_y+"]");
+//			System.out.println("monster_map["+current_monster_x+"]["+current_monster_y+"]");
                         current_monster.monster_map[current_monster_x][current_monster_y].traversed = 1;
                         
                         if(current_monster.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
