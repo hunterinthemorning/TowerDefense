@@ -34,8 +34,8 @@ public class DrawPane extends JPanel implements ActionListener{
   }
 	
 	public void start() {
-    timer = new Timer(1000, this);
-    timer.setInitialDelay(1000);
+    timer = new Timer(500, this);
+    timer.setInitialDelay(500);
     timer.start();
   }
 	
