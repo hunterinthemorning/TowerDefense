@@ -56,17 +56,6 @@ public class Monster
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
     }
     if(health <= starting_health * .75 && health > starting_health * .50){
-      file = new File("./2.png");
-    try
-    {
-      image1 = ImageIO.read(file);
-    }
-    catch (IOException localIOException)
-    {
-    }
-    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
-    }
-    if(health <= starting_health * .50 && health > starting_health * .25){
       file = new File("./3.png");
     try
     {
@@ -77,8 +66,19 @@ public class Monster
     }
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
     }
-    if(health <= starting_health * .25 && starting_health > 0){
+    if(health <= starting_health * .50 && health > starting_health * .25){
       file = new File("./4.png");
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
+    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+    }
+    if(health <= starting_health * .25 && starting_health > 0){
+      file = new File("./2.png");
     try
     {
       image1 = ImageIO.read(file);
