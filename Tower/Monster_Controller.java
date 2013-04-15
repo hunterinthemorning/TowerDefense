@@ -5,6 +5,8 @@ public class Monster_Controller {
 	static Graphics g;
 	int health = 100;
 	int speed = 10;
+	static int endX;
+	static int endY;
 	static ArrayList<Monster> monsters = new ArrayList();
 
 	public static void spawnMonster(int x, int y, int health, int speed) {
@@ -33,32 +35,43 @@ public class Monster_Controller {
                         Monster current_monster = monsters.get(i);
                         int current_monster_x = current_monster.x_position/32; 
                         int current_monster_y = current_monster.y_position/32; 
+			endX = Data.getEndX()/32;
+			endY = Data.getEndY()/32;
+//			System.out.println("curX "+current_monster_x+" curY "+current_monster_y);
+//			System.out.println("endX "+endX+" endY "+endY);
 
-                        Monster_Tile temp = current_monster.monster_map[current_monster_x][current_monster_y];
-//			System.out.println("monster_map["+current_monster_x+"]["+current_monster_y+"]");
-                        current_monster.monster_map[current_monster_x][current_monster_y].traversed = 1;
-                        
-                        if(current_monster.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
-                           current_monster.monster_map[current_monster_x+1][current_monster_y].tile.equals("DM")){
-//				System.out.println("update-monster 1");
-                               monsters.get(i).x_position = (current_monster_x+1) * 32;
-                        }
-                        else if((current_monster_x > 0) && (current_monster.monster_map[current_monster_x-1][current_monster_y].traversed == 0 && 
-                             current_monster.monster_map[current_monster_x-1][current_monster_y].tile.equals("DM"))){
-//				System.out.println("update-monster 2");
-                                monsters.get(i).x_position = (current_monster_x-1) * 32;
-                        }
-                        else if(current_monster.monster_map[current_monster_x][current_monster_y+1].traversed == 0 && 
-                           current_monster.monster_map[current_monster_x][current_monster_y+1].tile.equals("DM")){
-//				System.out.println("update-monster 3");
-                              monsters.get(i).y_position = (current_monster_y+1) * 32;
 
-                        } 
-                        else if((current_monster_y > 0) && (current_monster.monster_map[current_monster_x][current_monster_y-1].traversed == 0 && 
-                           current_monster.monster_map[current_monster_x][current_monster_y-1].tile.equals("DM"))){
-//				System.out.println("update-monster 4");
-                               monsters.get(i).y_position = (current_monster_y-1) * 32;
-                        } 
+			if((current_monster_x == endX) && (current_monster_y == endY)) {
+				monsters.remove(i);
+				Data.life -= 20;
+			}
+			else {
+
+//					System.out.println("monster_map["+current_monster_x+"]["+current_monster_y+"]");
+                                      current_monster.monster_map[current_monster_x][current_monster_y].traversed = 1;
+                                      
+                                      if(current_monster.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
+                                         current_monster.monster_map[current_monster_x+1][current_monster_y].tile.equals("DM")){
+//						System.out.println("update-monster 1");
+                                             monsters.get(i).x_position = (current_monster_x+1) * 32;
+                                      }
+                                      else if((current_monster_x > 0) && (current_monster.monster_map[current_monster_x-1][current_monster_y].traversed == 0 && 
+                                           current_monster.monster_map[current_monster_x-1][current_monster_y].tile.equals("DM"))){
+//						System.out.println("update-monster 2");
+                                              monsters.get(i).x_position = (current_monster_x-1) * 32;
+                                      }
+                                      else if(current_monster.monster_map[current_monster_x][current_monster_y+1].traversed == 0 && 
+                                         current_monster.monster_map[current_monster_x][current_monster_y+1].tile.equals("DM")){
+//						System.out.println("update-monster 3");
+                                            monsters.get(i).y_position = (current_monster_y+1) * 32;
+                      
+                                      } 
+                                      else if((current_monster_y > 0) && (current_monster.monster_map[current_monster_x][current_monster_y-1].traversed == 0 && 
+                                         current_monster.monster_map[current_monster_x][current_monster_y-1].tile.equals("DM"))){
+//						System.out.println("update-monster 4");
+                                             monsters.get(i).y_position = (current_monster_y-1) * 32;
+                                      } 
+			}
 
 //			System.out.println("updating monsters");
 			try{
