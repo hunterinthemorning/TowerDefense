@@ -27,8 +27,10 @@ public class SpawnMonsters implements ActionListener {
 			timer.restart();
 		}
 		else{
-		//	count = 0;
+			count = 0;
 //			incrase level of the game
+			Data.increaseLevel();
+			System.out.println(Data.getLevel());
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e){

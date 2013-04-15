@@ -47,6 +47,11 @@ public static ArrayList<Towers> towers = new ArrayList();
 	public static int getLevel(){
 		return level;
 	}
+
+	public static void increaseLevel(){
+		level += 1;
+	}
+	
 	public static int getGold(){
 		return gold;
 	}
