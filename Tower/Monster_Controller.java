@@ -34,28 +34,28 @@ public class Monster_Controller {
                         int current_monster_x = current_monster.x_position/32; 
                         int current_monster_y = current_monster.y_position/32; 
 
-                        Monster_Tile temp = Monster_Map.monster_map[current_monster_x][current_monster_y];
+                        Monster_Tile temp = current_monster.monster_map[current_monster_x][current_monster_y];
 			System.out.println("monster_map["+current_monster_x+"]["+current_monster_y+"]");
-                        Monster_Map.monster_map[current_monster_x][current_monster_y].traversed = 1;
+                        current_monster.monster_map[current_monster_x][current_monster_y].traversed = 1;
                         
-                        if(Monster_Map.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
-                           Monster_Map.monster_map[current_monster_x+1][current_monster_y].tile.equals("DM")){
+                        if(current_monster.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
+                           current_monster.monster_map[current_monster_x+1][current_monster_y].tile.equals("DM")){
 //				System.out.println("update-monster 1");
                                monsters.get(i).x_position = (current_monster_x+1) * 32;
                         }
-                        else if((current_monster_x > 0) && (Monster_Map.monster_map[current_monster_x-1][current_monster_y].traversed == 0 && 
-                             Monster_Map.monster_map[current_monster_x-1][current_monster_y].tile.equals("DM"))){
+                        else if((current_monster_x > 0) && (current_monster.monster_map[current_monster_x-1][current_monster_y].traversed == 0 && 
+                             current_monster.monster_map[current_monster_x-1][current_monster_y].tile.equals("DM"))){
 //				System.out.println("update-monster 2");
                                 monsters.get(i).x_position = (current_monster_x-1) * 32;
                         }
-                        else if(Monster_Map.monster_map[current_monster_x][current_monster_y+1].traversed == 0 && 
-                           Monster_Map.monster_map[current_monster_x][current_monster_y+1].tile.equals("DM")){
+                        else if(current_monster.monster_map[current_monster_x][current_monster_y+1].traversed == 0 && 
+                           current_monster.monster_map[current_monster_x][current_monster_y+1].tile.equals("DM")){
 //				System.out.println("update-monster 3");
                               monsters.get(i).y_position = (current_monster_y+1) * 32;
 
                         } 
-                        else if((current_monster_y > 0) && (Monster_Map.monster_map[current_monster_x][current_monster_y-1].traversed == 0 && 
-                           Monster_Map.monster_map[current_monster_x][current_monster_y-1].tile.equals("DM"))){
+                        else if((current_monster_y > 0) && (current_monster.monster_map[current_monster_x][current_monster_y-1].traversed == 0 && 
+                           current_monster.monster_map[current_monster_x][current_monster_y-1].tile.equals("DM"))){
 //				System.out.println("update-monster 4");
                                monsters.get(i).y_position = (current_monster_y-1) * 32;
                         } 

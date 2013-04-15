@@ -12,8 +12,8 @@ public class SpawnMonsters implements ActionListener {
 	int startingHealth = 100;
 	
 	public void start(){
-		timer = new Timer(500, this);
-		timer.setInitialDelay(500);
+		timer = new Timer(1000, this);
+		timer.setInitialDelay(1000);
 		timer.start();
 	}
 

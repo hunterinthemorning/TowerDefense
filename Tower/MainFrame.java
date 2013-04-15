@@ -95,7 +95,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	
 	private void newGame(int num){
 		Data.loadMap(num);
-		Monster_Map monster_map = new Monster_Map(num);
+		//Monster_Map monster_map = new Monster_Map(num);
 	}
 	
 	private void loadGame(int num){

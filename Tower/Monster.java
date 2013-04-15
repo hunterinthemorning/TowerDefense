@@ -16,6 +16,8 @@ public class Monster
   private int speed = 0;
   private static boolean live = false;
   private static BufferedImage image1 = null;
+  public Monster_Tile[][] monster_map = new Monster_Tile[22][17];
+  //public static Monster_Map monster_map;
 
   public Monster(int paramInt1, int paramInt2, int paramInt3, int paramInt4) { set_monster(paramInt1, paramInt2, paramInt3, paramInt4); }
 
@@ -26,6 +28,8 @@ public class Monster
     this.y_position = paramInt2;
     this.health = paramInt3;
     this.speed = paramInt4;
+    Monster_Map monster_Map = new Monster_Map(1);
+    this.monster_map = monster_Map.monster_map;
     try
     {
       image1 = ImageIO.read(file);

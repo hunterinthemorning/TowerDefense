@@ -4,9 +4,10 @@ import java.awt.Graphics;
 
 public class Monster_Map {
 
-  public static Monster_Tile[][] monster_map = new Monster_Tile[22][17];
+  Monster_Tile[][] monster_map = new Monster_Tile[22][17];
   Monster_Map(int mapNumber){
-    File file = new File("map" + mapNumber+".txt");
+    //Monster_Tile[][] monster_map = new Monster_Tile[22][17];
+    File file = new File("map1.txt");
     Scanner scan = null;
     try{scan = new Scanner(file);}catch(Exception e){}
 
