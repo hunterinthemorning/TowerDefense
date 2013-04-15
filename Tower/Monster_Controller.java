@@ -73,7 +73,7 @@ public class Monster_Controller {
 	public static void dealDamage(int position, int damage) {
 		int health;	
 		health = (monsters.get(position).getHealth()) - damage;
-		System.out.println("Monster "+position+" health "+health);
+//		System.out.println("Monster "+position+" health "+health);
 		if(health <= 0){
 			monsters.remove(position);
 			Data.gold += 10;

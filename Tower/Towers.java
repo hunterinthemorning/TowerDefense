@@ -34,7 +34,7 @@ public class Towers
         {
           this.attacking = i;
 	paint2();
-          System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
+//          System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
           Monster_Controller.dealDamage(attacking, 10);
         }
 
