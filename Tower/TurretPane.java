@@ -24,12 +24,16 @@ public class TurretPane extends JPanel implements ActionListener{
 		String level = Integer.toString(Data.getLevel());
 		String gold = Integer.toString(Data.getGold());
 		String life = Integer.toString(Data.getLife());
+		String monstersKilled = Integer.toString(Data.monstersKilled);
 		g.drawString("Level: ", 10, 10);
 		g.drawString(level, 10, 30);
 		g.drawString("Gold: ", 10, 50);
 		g.drawString(gold, 10, 70);
 		g.drawString("Life: ", 10, 90);
 		g.drawString(life, 10, 110);
+		g.drawString("Monsters", 10, 130);
+		g.drawString("Killed:", 10, 150);
+		g.drawString(monstersKilled, 10, 170);
 
 	}
 
