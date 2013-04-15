@@ -9,6 +9,7 @@ public class Monster_Controller {
 	static int endX;
 	static int endY;
 	static ArrayList<Monster> monsters = new ArrayList();
+	static int monstersKilled = 0;
 
 	public static void spawnMonster(int x, int y, int health, int speed) {
 		// do x and y conversion here
@@ -45,8 +46,9 @@ public class Monster_Controller {
 			if((current_monster_x == endX) && (current_monster_y == endY)) {
 				monsters.remove(i);
 				Data.life -= 20;
+				monstersKilled++;
 				if(Data.life <= 0){
-		        JOptionPane.showMessageDialog(null, "Game over!!!");
+		        		JOptionPane.showMessageDialog(null, "Game over!!! "+"\n"+monstersKilled);
 					System.exit(0);
 				}
 			}

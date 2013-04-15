@@ -22,6 +22,7 @@ public class SpawnMonsters implements ActionListener {
 		// TODO Auto-generated method stub
 		if(count != 10){
                         Monster_Controller.spawnMonster(Data.getStartX(), Data.getStartY(), startingHealth*Data.getLevel(), 5);
+			System.out.println(Data.getStartX()+" "+ Data.getStartY());
 //			spawnMonster(0,200,startingHealth*level,5);
 			count++;
 			timer.restart();
