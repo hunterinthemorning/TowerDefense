@@ -22,7 +22,7 @@ public class Towers
   private int aoe = 50;
   static boolean live = false;
   static BufferedImage image1 = null;
-  public int attacking;
+  public int attacking = -1;
   Timer timer = null;
 
   public void actionPerformed(ActionEvent paramActionEvent)
@@ -30,16 +30,18 @@ public class Towers
     if (Monster_Controller.monsters.size() > 0)
     {
       for (int i = 0; i < Monster_Controller.monsters.size(); i++) {
-        if (Math.sqrt((x_position - Monster_Controller.monsters.get(i).x_position) * 2 + (y_position - Monster_Controller.monsters.get(i).y_position) * 2) < 10)
+		if (Math.sqrt(Math.pow((x_position - 12) - Monster_Controller.monsters.get(i).x_position, 2) + Math.pow((y_position - 12) - Monster_Controller.monsters.get(i).y_position, 2)) < 80)
         {
           this.attacking = i;
-//          System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
+          break;
 		//paint2();
-		Monster_Controller.dealDamage(attacking, 10);
+		
         }
 
       }
-
+      if(attacking != -1)
+      Monster_Controller.dealDamage(attacking, 15);
+	attacking = -1;
     }
 
     this.timer.restart();
@@ -73,7 +75,7 @@ public class Towers
   {
     paramGraphics.drawImage(image1, this.x_position - 12, this.y_position - 12, null);
     paramGraphics.setColor(Color.black);
-    paramGraphics.drawOval(this.x_position - this.aoe, this.y_position - this.aoe, this.aoe * 2, this.aoe * 2);
+    paramGraphics.drawOval(this.x_position - this.aoe, this.y_position - this.aoe, this.aoe*2, this.aoe*2);
     attack();
   }
 

@@ -41,18 +41,8 @@ public class Monster
 
   public void paint(Graphics paramGraphics)
   {
+    if(health <= 100 && health > 75){
     file = new File("./1.png");
-
-    if(health < 75 && health > 50){
-      file = new File("./2.png");
-    }
-    if(health < 50 && health > 25){
-      file = new File("./3.png");
-    }
-    if(health < 25 && health > 0){
-      file = new File("./4.png");
-    }
-
     try
     {
       image1 = ImageIO.read(file);
@@ -61,6 +51,41 @@ public class Monster
     {
     }
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+    }
+    if(health <= 75 && health > 50){
+      file = new File("./2.png");
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
+    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+    }
+    if(health <= 50 && health > 25){
+      file = new File("./3.png");
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
+    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+    }
+    if(health <= 25 && health > 0){
+      file = new File("./4.png");
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
+    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+    }
+
   }
 
   public int getHealth()
