@@ -40,27 +40,27 @@ public class Monster_Controller {
                         
                         if(Monster_Map.monster_map[current_monster_x+1][current_monster_y].traversed == 0 && 
                            Monster_Map.monster_map[current_monster_x+1][current_monster_y].tile.equals("DM")){
-				System.out.println("update-monster 1");
+//				System.out.println("update-monster 1");
                                monsters.get(i).x_position = (current_monster_x+1) * 32;
                         }
                         else if((current_monster_x > 0) && (Monster_Map.monster_map[current_monster_x-1][current_monster_y].traversed == 0 && 
                              Monster_Map.monster_map[current_monster_x-1][current_monster_y].tile.equals("DM"))){
-				System.out.println("update-monster 2");
+//				System.out.println("update-monster 2");
                                 monsters.get(i).x_position = (current_monster_x-1) * 32;
                         }
                         else if(Monster_Map.monster_map[current_monster_x][current_monster_y+1].traversed == 0 && 
                            Monster_Map.monster_map[current_monster_x][current_monster_y+1].tile.equals("DM")){
-				System.out.println("update-monster 3");
+//				System.out.println("update-monster 3");
                               monsters.get(i).y_position = (current_monster_y+1) * 32;
 
                         } 
                         else if((current_monster_y > 0) && (Monster_Map.monster_map[current_monster_x][current_monster_y-1].traversed == 0 && 
                            Monster_Map.monster_map[current_monster_x][current_monster_y-1].tile.equals("DM"))){
-				System.out.println("update-monster 4");
+//				System.out.println("update-monster 4");
                                monsters.get(i).y_position = (current_monster_y-1) * 32;
                         } 
 
-			System.out.println("updating monsters");
+//			System.out.println("updating monsters");
 			try{
 			//Thread.sleep(200);
 			//System.out.println(i);
@@ -73,8 +73,10 @@ public class Monster_Controller {
 	public static void dealDamage(int position, int damage) {
 		int health;	
 		health = (monsters.get(position).getHealth()) - damage;
+		System.out.println("Monster "+position+" health "+health);
 		if(health <= 0){
 			monsters.remove(position);
+			Data.gold += 10;
 //			update();
 		}	
 		else {
