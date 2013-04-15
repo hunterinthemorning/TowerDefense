@@ -13,7 +13,7 @@ public static ArrayList<Towers> towers = new ArrayList();
 	public static int startingGold = 200;
 	public static int gold = startingGold;
 	public static int life = 100;
-	private static int level = 1;
+	public static int level = 1;
 	private static Map[][] map;
 	private static ArrayList<Sprite> monsters;
 	private static String grass = "Grass.png";
