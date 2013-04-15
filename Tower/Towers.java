@@ -30,18 +30,11 @@ public class Towers
     if (Monster_Controller.monsters.size() > 0)
     {
       for (int i = 0; i < Monster_Controller.monsters.size(); i++) {
-        if (((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && 
-        (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || 
-        ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && 
-        (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || 
-        ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position + this.aoe) && 
-        (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)) || 
-        ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe) && 
-        (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)))
+        if (Math.sqrt((x_position - Monster_Controller.monsters.get(i).x_position) * 2 + (y_position - Monster_Controller.monsters.get(i).y_position) * 2) < 10)
         {
           this.attacking = i;
 //          System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
-		paint2();
+		//paint2();
 		Monster_Controller.dealDamage(attacking, 10);
         }
 
@@ -84,32 +77,9 @@ public class Towers
     attack();
   }
 
-  public void paint2()
-  {
-    this.g.setColor(Color.magenta);
-    this.g.drawOval(this.x_position - this.aoe + 75, this.y_position - this.aoe + 75, this.aoe * 2 - 150, this.aoe * 2 - 150);
-    try {
-      Thread.sleep(20L);
-    }
-    catch (InterruptedException localInterruptedException1) {
-      localInterruptedException1.printStackTrace();
-    }
-    this.g.drawOval(this.x_position - this.aoe + 50, this.y_position - this.aoe + 50, this.aoe * 2 - 100, this.aoe * 2 - 100);
-    try {
-      Thread.sleep(20L);
-    }
-    catch (InterruptedException localInterruptedException2) {
-      localInterruptedException2.printStackTrace();
-    }
-    this.g.drawOval(this.x_position - this.aoe + 12, this.y_position - this.aoe + 12, this.aoe * 2 - 25, this.aoe * 2 - 25);
-    try {
-      Thread.sleep(20L);
-    }
-    catch (InterruptedException localInterruptedException3) {
-      localInterruptedException3.printStackTrace();
-    }
-    this.g.drawOval(this.x_position - this.aoe, this.y_position - this.aoe, this.aoe, this.aoe);
-  }
+	public void paint2(){		
+		g.fillRect(x_position, y_position, 300, 300);
+	}
 
   public void start_attack() {
     this.timer = new Timer(500, this);
