@@ -21,7 +21,8 @@ public class SpawnMonsters implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		if(count != 10){
-//			spawnMonster(startingHealth*level, );
+                        Monster_Controller.spawnMonster(0, 220, startingHealth, 5);
+//			spawnMonster(0,200,startingHealth*level,5);
 			count++;
 			timer.restart();
 		}
@@ -29,7 +30,7 @@ public class SpawnMonsters implements ActionListener {
 			count = 0;
 //			incrase level of the game
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(100);
 			} catch (InterruptedException e){
 				// TODO Auto-generated catch block
 				e.printStackTrace();

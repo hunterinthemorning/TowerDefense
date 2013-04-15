@@ -74,7 +74,7 @@ public class MainFrame extends Core implements KeyListener, MouseMotionListener,
 	public void mouseClicked(MouseEvent e) {
 		Rectangle rect = new Rectangle(e.getX(), e.getY(), 1, 1);
 		
-		Monster_Controller.spawnMonster(0, 220, 100, 5);
+		//Monster_Controller.spawnMonster(0, 220, 100, 5);
 		
 		if(!isMenu()){
 			if(New.contains(rect)){
