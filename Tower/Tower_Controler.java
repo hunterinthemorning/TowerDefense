@@ -10,7 +10,8 @@ public class Tower_Controler
   {
     Map[][] arrayOfMap = Data.getMap();
 
-    if (arrayOfMap[(paramInt1 / 32)][(paramInt2 / 32)].getCharString().equals("GP")) {
+    if (arrayOfMap[(paramInt1 / 32)][(paramInt2 / 32)].getCharString().equals("GP") &&
+    Data.gold > 40) {
       Towers localTowers = new Towers(paramInt1 / 32 * 32, paramInt2 / 32 * 32, g);
       Data.towers.add(localTowers);
       arrayOfMap[(paramInt1 / 32)][(paramInt2 / 32)].setCharString("B");

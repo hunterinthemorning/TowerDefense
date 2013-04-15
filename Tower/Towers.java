@@ -27,7 +27,7 @@ public class Towers
 
   public void actionPerformed(ActionEvent paramActionEvent)
   {
-    if (Monster_Controller.monsters.size() >= 0)
+    if (Monster_Controller.monsters.size() > 0)
     {
       for (int i = 0; i < Monster_Controller.monsters.size(); i++) {
         if (((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position + this.aoe) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)))
@@ -36,9 +36,6 @@ public class Towers
 	paint2();
           System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
           Monster_Controller.dealDamage(attacking, 10);
-          if (((Monster)Monster_Controller.monsters.get(this.attacking)).health == 0) {
-            Data.gold += 10;
-          }
         }
 
       }
@@ -61,7 +58,7 @@ public class Towers
     this.y_position = paramInt2;
     this.g = paramGraphics;
     paint(paramGraphics);
-    Data.gold -= 30;
+    Data.gold -= 40;
     attack();
     try
     {
