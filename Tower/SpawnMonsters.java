@@ -7,6 +7,7 @@ import javax.swing.Timer;
 
 public class SpawnMonsters implements ActionListener {
 	Timer timer = null;
+	static int health = 100;
 	private int count = 0;
 	int x, y; //Change this to represent the top right corner of the map
 	int startingHealth = 100;
@@ -20,26 +21,21 @@ public class SpawnMonsters implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if(count != 10){
-                        Monster_Controller.spawnMonster(Data.getStartX(), Data.getStartY(), startingHealth*Data.getLevel(), 5);
+	
+            Monster_Controller.spawnMonster(Data.getStartX(), Data.getStartY(), startingHealth, 5);
 			System.out.println(Data.getStartX()+" "+ Data.getStartY());
 //			spawnMonster(0,200,startingHealth*level,5);
 			count++;
-			timer.restart();
-		}
-		else{
-			count = 0;
-//			incrase level of the game
+			if(count == 10){
+			health += 100;
 			Data.increaseLevel();
-			System.out.println(Data.getLevel());
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e){
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			count = 0;
 			}
+			
+			
 			timer.restart();
-		}
+		
+		
 	}
 	
 	public void draw(Graphics g){

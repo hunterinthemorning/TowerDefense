@@ -13,6 +13,7 @@ public class Monster
   public int x_position = 0;
   public int y_position = 0;
   int health = 0;
+  int starting_health = 0;
   private int speed = 0;
   private static boolean live = false;
   private static BufferedImage image1 = null;
@@ -26,7 +27,9 @@ public class Monster
   {
     this.x_position = paramInt1;
     this.y_position = paramInt2;
-    this.health = paramInt3;
+    
+    this.health = SpawnMonsters.health;
+    this.starting_health = health;
     this.speed = paramInt4;
     Monster_Map monster_Map = new Monster_Map(1);
     this.monster_map = monster_Map.monster_map;
@@ -41,7 +44,7 @@ public class Monster
 
   public void paint(Graphics paramGraphics)
   {
-    if(health <= 100 && health > 75){
+    if(health <= starting_health && health > starting_health * .75){
     file = new File("./1.png");
     try
     {
@@ -52,7 +55,7 @@ public class Monster
     }
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
     }
-    if(health <= 75 && health > 50){
+    if(health <= starting_health * .75 && health > starting_health * .50){
       file = new File("./2.png");
     try
     {
@@ -63,7 +66,7 @@ public class Monster
     }
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
     }
-    if(health <= 50 && health > 25){
+    if(health <= starting_health * .50 && health > starting_health * .25){
       file = new File("./3.png");
     try
     {
@@ -74,7 +77,7 @@ public class Monster
     }
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
     }
-    if(health <= 25 && health > 0){
+    if(health <= starting_health * .25 && starting_health > 0){
       file = new File("./4.png");
     try
     {

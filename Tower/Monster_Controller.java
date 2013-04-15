@@ -19,7 +19,7 @@ public class Monster_Controller {
 		// create new monster when called
 		//System.out.println((x/32) * 32  + " " +(y/32) *32);
 		Monster monster = new Monster((x/32)*32, (y/32) *32, health, speed);
-		monsters.add(monster);
+				monsters.add(monster);
 	}
 		
 	public static void draw(Graphics g) {
