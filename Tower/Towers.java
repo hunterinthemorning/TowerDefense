@@ -33,9 +33,9 @@ public class Towers
         if (((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe + this.aoe * 2) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position + this.aoe) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)) || ((((Monster)Monster_Controller.monsters.get(i)).x_position <= this.x_position - this.aoe) && (((Monster)Monster_Controller.monsters.get(i)).y_position <= this.y_position - this.aoe + this.aoe * 2)))
         {
           this.attacking = i;
-
+	paint2();
           System.out.println(((Monster)Monster_Controller.monsters.get(this.attacking)).health);
-          Monster_Controller.monsters.get(this.attacking).health -= 10;
+          Monster_Controller.dealDamage(attacking, 10);
           if (((Monster)Monster_Controller.monsters.get(this.attacking)).health == 0) {
             Data.gold += 10;
           }
