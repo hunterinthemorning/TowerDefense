@@ -17,8 +17,17 @@ public class Monster_Controller {
 		Monster monster = new Monster((x/32)*32, (y/32) *32, health, speed);
 		monsters.add(monster);
 	}
+		
+	public static void draw(Graphics g) {
 	
-	public static void update(Graphics g){
+		for(int i = 0; i < monsters.size(); i++){
+			monsters.get(i).paint(g);
+		}
+
+	}
+
+	
+	public static void update(){
 
 		for(int i = 0; i < monsters.size(); i++){
                         Monster current_monster = monsters.get(i);
@@ -52,7 +61,6 @@ public class Monster_Controller {
                         } 
 
 			System.out.println("updating monsters");
-			monsters.get(i).paint(g);
 			try{
 			//Thread.sleep(200);
 			//System.out.println(i);
