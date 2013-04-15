@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 
 public class Monster
 {
-  static File file = new File("monster3.png");
+  static File file = new File("./1.png");
   File file2 = new File("./monster2.png");
   static int sleep = 1000;
   public Graphics g = null;
@@ -41,6 +41,25 @@ public class Monster
 
   public void paint(Graphics paramGraphics)
   {
+    file = new File("./1.png");
+
+    if(health < 75 && health > 50){
+      file = new File("./2.png");
+    }
+    if(health < 50 && health > 25){
+      file = new File("./3.png");
+    }
+    if(health < 25 && health > 0){
+      file = new File("./4.png");
+    }
+
+    try
+    {
+      image1 = ImageIO.read(file);
+    }
+    catch (IOException localIOException)
+    {
+    }
     paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
   }
 
