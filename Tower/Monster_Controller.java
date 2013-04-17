@@ -1,14 +1,19 @@
-
 import java.util.ArrayList;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+
 public class Monster_Controller {
-	static Graphics g;
 	int health = 100;
 	int speed = 10;
 	static int endX;
 	static int endY;
 	static ArrayList<Monster> monsters = new ArrayList();
+	static File flame = new File("./Burn.png");
+	static BufferedImage image1 = null;
 
 	public static void spawnMonster(int x, int y, int health, int speed) {
 		// do x and y conversion here
@@ -43,7 +48,7 @@ public class Monster_Controller {
 //			System.out.println("endX "+endX+" endY "+endY);
 
 
-			if((current_monster_x == endX) && (current_monster_y == endY)) {
+			if((current_monster_x == (endX)) && (current_monster_y == (endY))) {
 				monsters.remove(i);
 				Data.life -= 20;
 				if(Data.life <= 0){

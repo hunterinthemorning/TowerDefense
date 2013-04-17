@@ -113,7 +113,12 @@ public static ArrayList<Towers> towers = new ArrayList();
 				String key = scan.next();
 				String imgChar = Character.toString(key.charAt(0));
 				Animation a = new Animation();
-				a.addScene(new ImageIcon("./resources/sprites/"+imgChar+".png").getImage(), 5250);
+				if((i == 18) && (j == 12)){
+					a.addScene(new ImageIcon("./castle.png").getImage(), 5250);
+				}
+				else{
+					a.addScene(new ImageIcon("./resources/sprites/"+imgChar+".png").getImage(), 5250);
+				}
 				Sprite s = new Sprite(a);
 				s.setX(32*i);
 				s.setY(32*j);
@@ -122,6 +127,13 @@ public static ArrayList<Towers> towers = new ArrayList();
 		}
 		setStartPos(Integer.valueOf(scan.next()), Integer.valueOf(scan.next()));
 		setEndPos(Integer.valueOf(scan.next()), Integer.valueOf(scan.next()));
+
+/*		Animation a = new Animation();
+		a.addScene(new ImageIcon("castle.png").getImage(), 5250);
+		Sprite s = new Sprite(a);
+		System.out.println(endX+" "+endY);
+		s.setX(endX/32);
+		s.setY(endY/32);*/
 		
 		/*Image g = new ImageIcon(grass).getImage();
 		Image d = new ImageIcon(dirt).getImage();

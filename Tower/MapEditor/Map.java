@@ -1,4 +1,3 @@
-package MapEditor;
 import java.util.ArrayList;
 
 

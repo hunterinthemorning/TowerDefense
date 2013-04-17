@@ -44,51 +44,63 @@ public class Monster
 
   public void paint(Graphics paramGraphics)
   {
-    if(health <= starting_health && health > starting_health * .75){
-    file = new File("./1.png");
-    try
-    {
-      image1 = ImageIO.read(file);
+    if((this.x_position == Data.getEndX()) && (this.y_position == Data.getEndY())){
+	file = new File("./Burn.png");
+	try
+        {
+          image1 = ImageIO.read(file);
+        }
+        catch (IOException localIOException)
+        {
+        }
+        paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
     }
-    catch (IOException localIOException)
-    {
+    else{
+        if(health <= starting_health && health > starting_health * .75){
+        file = new File("./1.png");
+        try
+        {
+          image1 = ImageIO.read(file);
+        }
+        catch (IOException localIOException)
+        {
+        }
+        paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+        }
+        if(health <= starting_health * .75 && health > starting_health * .50){
+          file = new File("./3.png");
+        try
+        {
+          image1 = ImageIO.read(file);
+        }
+        catch (IOException localIOException)
+        {
+        }
+        paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+        }
+        if(health <= starting_health * .50 && health > starting_health * .25){
+          file = new File("./4.png");
+        try
+        {
+          image1 = ImageIO.read(file);
+        }
+        catch (IOException localIOException)
+        {
+        }
+        paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+        }
+        if(health <= starting_health * .25 && starting_health > 0){
+          file = new File("./2.png");
+        try
+        {
+          image1 = ImageIO.read(file);
+        }
+        catch (IOException localIOException)
+        {
+        }
+        paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
+        }
     }
-    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
-    }
-    if(health <= starting_health * .75 && health > starting_health * .50){
-      file = new File("./3.png");
-    try
-    {
-      image1 = ImageIO.read(file);
-    }
-    catch (IOException localIOException)
-    {
-    }
-    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
-    }
-    if(health <= starting_health * .50 && health > starting_health * .25){
-      file = new File("./4.png");
-    try
-    {
-      image1 = ImageIO.read(file);
-    }
-    catch (IOException localIOException)
-    {
-    }
-    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
-    }
-    if(health <= starting_health * .25 && starting_health > 0){
-      file = new File("./2.png");
-    try
-    {
-      image1 = ImageIO.read(file);
-    }
-    catch (IOException localIOException)
-    {
-    }
-    paramGraphics.drawImage(image1, this.x_position, this.y_position, null);
-    }
-
   }
 
   public int getHealth()
